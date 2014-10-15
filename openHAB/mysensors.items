@@ -1,0 +1,31 @@
+Group all
+Group node1 <temperature> (all)	
+Group node2  (all)
+Group sketch (all)
+
+DateTime Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	(all)	{ ntp="Europe/Berlin:de_DE" } 
+DateTime Time			"Time [%1$tH :%1$tM]"				<clock>	(all)	{ ntp="Europe/Berlin:de_DE" }
+
+Group Temperature_Chart
+Number Temperature  "Temperature [%.1f C]"   <temperature>  (node1,all)  {mqtt="<[mysensor:MyMQTT/20/0/V_TEMP:state:default]"}
+Number Temp_Max 		"Todays Maximum [%.1f C]"	<temperature> (node1,all)
+Number Temp_Min 		"Todays Minimum [%.1f C]"	<temperature> (node1,all)
+DateTime Temperature_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
+Number Temperature_Chart_Period		"Chart Period"
+
+
+Number node1_humid "Humid [%.1f %%Rh]" (node1,all)  {mqtt="<[mysensor:MyMQTT/20/11/V_HUM:state:default]"}
+
+Switch node2_sw1  "Switch 1 20/1/V_LIGHT w/ack"  (node2,all)  {mqtt=">[mysensor:MyMQTT/20/1/V_LIGHT:command:ON:1],>[mysensor:MyMQTT/20/1/V_LIGHT:command:OFF:0],<[mysensor:MyMQTT/20/1/V_LIGHT:command:MAP(1on0off.map)]"}
+Switch node2_sw2  "Switch 2 20/2/V_LIGHT w/ack"  (node2,all)      {mqtt=">[mysensor:MyMQTT/20/2/V_LIGHT:command:ON:1],>[mysensor:MyMQTT/20/2/V_LIGHT:command:OFF:0],<[mysensor:MyMQTT/20/2/V_LIGHT:command:MAP(1on0off.map)]"}
+
+ String sketch20 "Sketch name 20 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/20/255/V_SKETCH_NAME:state:default]"}
+ String sketch21 "Sketch name 21 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/21/255/V_SKETCH_NAME:state:default]"}
+ String sketch22 "Sketch name 22 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/22/255/V_SKETCH_NAME:state:default]"}
+ String sketch23 "Sketch name 23 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/23/255/V_SKETCH_NAME:state:default]"}
+ String sketch24 "Sketch name 24 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/24/255/V_SKETCH_NAME:state:default]"}
+ String sketch25 "Sketch name 25 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/25/255/V_SKETCH_NAME:state:default]"}
+ String sketch26 "Sketch name 26 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/26/255/V_SKETCH_NAME:state:default]"}
+ String sketch27 "Sketch name 27 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/27/255/V_SKETCH_NAME:state:default]"}
+ String sketch28 "Sketch name 28 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/28/255/V_SKETCH_NAME:state:default]"}
+ String sketch29 "Sketch name 29 [%s]"  (sketch,all) {mqtt="<[mysensor:MyMQTT/29/255/V_SKETCH_NAME:state:default]"}

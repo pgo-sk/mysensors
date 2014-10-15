@@ -1,0 +1,107 @@
+sitemap mysensors label="Menu"
+{
+	Frame label="Home V1.0 (c) Pego 2014-10-13" {
+		Group item=node1 label="Temp hum node" {
+			Text item=Temperature			
+			Text item=Temp_Max			
+			Text item=Temp_Min			
+			Text item=node1_humid			
+		}		
+		Group item=node2 label="Switch node" {
+			Switch item=node2_sw1			
+			Switch item=node2_sw2			
+		}		
+		Group item=sketch label="Sketch names" {
+			Text item=sketch20			
+			Text item=sketch21			
+			Text item=sketch22			
+			Text item=sketch23			
+			Text item=sketch24			
+			Text item=sketch25			
+			Text item=sketch26			
+			Text item=sketch27			
+			Text item=sketch28			
+			Text item=sketch29			
+		}		
+		Group item=all label="Everything" {
+			Group item=Temp {
+				Text item=Temp				
+			}			
+			Group item=node2 {
+				Switch item=node2_sw1				
+				Switch item=node2_sw2				
+			}			
+			Group item=sketch {
+				Text item=sketch20				
+				Text item=sketch21				
+				Text item=sketch22				
+				Text item=sketch23				
+				Text item=sketch24				
+				Text item=sketch25				
+				Text item=sketch26				
+				Text item=sketch27				
+				Text item=sketch28				
+				Text item=sketch29				
+			}			
+			Text item=Temp			
+			Group item=node1 {
+				Text item=Temperature				
+				Text item=Temp_Max				
+				Text item=Temp_Min				
+				Text item=node1_humid				
+			}			
+			Group item=node2 {
+				Switch item=node2_sw1				
+				Switch item=node2_sw2				
+			}			
+			Group item=sketch {
+				Text item=sketch20				
+				Text item=sketch21				
+				Text item=sketch22				
+				Text item=sketch23				
+				Text item=sketch24				
+				Text item=sketch25				
+				Text item=sketch26				
+				Text item=sketch27				
+				Text item=sketch28				
+				Text item=sketch29				
+			}			
+			Text item=Temperature			
+			Text item=Temp_Max			
+			Text item=Temp_Min			
+			Text item=node1_humid			
+			Switch item=node2_sw1			
+			Switch item=node2_sw2			
+			Text item=sketch20			
+			Text item=sketch21			
+			Text item=sketch22			
+			Text item=sketch23			
+			Text item=sketch24			
+			Text item=sketch25			
+			Text item=sketch26			
+			Text item=sketch27			
+			Text item=sketch28			
+			Text item=sketch29			
+		}		
+	}	
+	Frame label="Temp w/chart" {
+		Text item=Temperature valuecolor=[>25="orange", >24="green", >15="orange", >10="orange", <=10="blue", <=4="red"] {
+			Frame {
+				Text item=Temp_Max valuecolor=[>25="orange", >24="green", >15="orange", >10="orange", <=10="blue", <=4="red"]				
+				Text item=Temp_Min valuecolor=[>25="orange", >24="green", >15="orange", >10="orange", <=10="blue", <=4="red"]				
+				Text item=Temperature_LastUpdate				
+			}			
+			Webview label="Temp" icon="temperature" url="/habmin/chart.html?chart=Temp_Graph&service=rrd4j&period=d&refresh=1" height=10			
+			Frame {
+				Switch item=Temperature_Chart_Period label="Chart Period" mappings=[0="Hour", 1="Day", 2="Week"]				
+				Chart item=Temperature_Chart period=h refresh=600 visibility=[Temperature_Chart_Period==0, Temperature_Chart_Period==Uninitialized]				
+				Chart item=Temperature_Chart period=D refresh=3600 visibility=[Temperature_Chart_Period==1]				
+				Chart item=Temperature_Chart period=W refresh=3600 visibility=[Temperature_Chart_Period==2]				
+			}			
+		}		
+	}	
+	Frame label="Date" {
+		Text item=Date		
+		Text item=Time		
+	}	
+}
